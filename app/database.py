@@ -16,7 +16,6 @@ class Database:
             cls._session_factory = sessionmaker(
                 bind=cls._engine, class_=AsyncSession, expire_on_commit=False, future=True
             )
-
     @classmethod
     def get_session_factory(cls):
         """Returns the session factory, ensuring it's initialized."""

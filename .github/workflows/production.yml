@@ -70,15 +70,15 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: bb472/Homework-10:${{ github.sha }} # Uses the Git SHA for tagging
+          tags: bb472/homework-10:${{ github.sha }} # Uses the Git SHA for tagging
           platforms: linux/amd64,linux/arm64 # Multi-platform support
-          cache-from: type=registry,ref=bb472/Homework-10:cache
+          cache-from: type=registry,ref=bb472/homework-10:cache
           cache-to: type=inline,mode=max
           
       - name: Scan the Docker image
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'bb472/Homework-10:${{ github.sha }}'
+          image-ref: 'bb472/homework-10:${{ github.sha }}'
           format: 'table'
           exit-code: '1' # Fail the job if vulnerabilities are found
           ignore-unfixed: true
